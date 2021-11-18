@@ -1,0 +1,20 @@
+# Backup files and other machine-local stuff
+*.user
+*.svn
+*.autosave
+*.dropbox.attr
+*~
+*.orig
+*.swp
+*.old
+\#*\#
+# All dot files, if you wish to track one, just add it
+.*
+
+#deployed files
+deployment/local/*
+deployment/server/*
+
+# Misc
+*Thumbs.db
+

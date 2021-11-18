@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<!--
+  Arcana by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>@paper_title@</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/before-after.min.css" />
+
+    <style>
+.two-c {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+    </style>
+  </head>
+  <body class="is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+        <div id="header">
+          <h1><a href="index.html" id="logo">@paper_title@<br/><em>Supplementary materials</em></a></h1>
+          <!-- Nav -->
+            <nav id="nav">
+              <ul>
+                <li class="current"><a href="index.html">Home</a></li>
+                <li><a href="default.html">Default Dataset</a></li>
+                <li><a href="abc.html">ABC Dataset</a></li>
+                <li><a href="abc_noise_0.04.html">ABC Dataset (with noise)</a></li>
+                <li><a href="shrec.html">SHREC: Curve Detection Dataset</a></li>
+              </ul>
+            </nav>
+
+        </div>
+
+      <!-- Main -->
+        <section class="wrapper style1">
+          <div class="container">
+            <div id="content">
+
+              <!-- Content -->
+
+                <article>
+                  <header>
+		    <h2>@paper_title@</h2>
+                    <p>Supplementary materials.</p>
+                  </header>
+
+                  <h3>Abstract</h3>
+                  <p> In recent years, Convolutional Neural Networks (CNN) have proven to be efficient analysis tools for processing point clouds, e.g., for reconstruction, segmentation, and classification. In this article, we focus on the classification of edges in point clouds, where both edges and their surrounding are described. We propose a new parameterization adding to each point a set of differential information on its surrounding shape reconstructed at different scales. These parameters, stored in a Scale-Space Matrix (SSM), provide a well-suited information from which an adequate neural network can learn the description of edges and use it to efficiently detect them in acquired point clouds. After successfully applying a multi-scale CNN on SSMs for the efficient classification of edges and their neighborhood, we propose a new lightweight neural network architecture outperforming the CNN in learning time, processing time, and classification capabilities. Our architecture is compact, requires small learning sets, is very fast to train, and classifies millions of points in seconds.</p>
+
+                  <h3>Content of this website</h3>
+                  <p>We present interactive visualization of our submission experimental results. The content is anonymized, and should be accessible with any modern web browser. Our results on the different datasets are accessible using the menu on the top. Additional plots, side-by-side comparisons high-resolution versions of the paper figures are available further on this page.</p>
+
+                  <h3>Bibtex entry</h3>
+
+                  <pre style="font-family:monospace; font-size: 75%; line-height: 100%;">@article{10.1145/3481804,
+  author     = {Himeur, Chems-Eddine and Lejemble, Thibault and Pellegrini, Thomas and Paulin, Mathias and Barthe, Loic and Mellado, Nicolas},
+  title      = {PCEDNet: A Lightweight Neural Network for Fast and Interactive Edge Detection in 3D Point Clouds},
+  year       = {2021},
+  issue_date = {February 2022},
+  publisher  = {Association for Computing Machinery},
+  address    = {New York, NY, USA},
+  volume     = {41}, number = {1},
+  issn       = {0730-0301},
+  url        = {https://doi.org/10.1145/3481804}, doi = {10.1145/3481804},
+  journal    = {ACM Trans. Graph.},
+  month      = {nov}, articleno = {10}, numpages = {21},
+  keywords   = {low resource computing, energy efficiency, datasets, edge detection, neural networks, Point clouds processing}
+}</pre>
+
+                </article>
+
+                <article>
+                  <header>
+                    <h2>Naming conventions</h2>
+                  </header>
+                  <h3>Classifications</h3>
+                  <ul class='two-c'>
+                    @method_list@
+                  </ul>
+                  <p>Please refer to the paper for technical defails and references.</p>
+
+                  <h3>Experiments</h3>
+                  <ul class='two-c'>
+                    @experiment_list@
+                  </ul>
+                </article>
+
+
+                <article>
+                  <header>
+                    <h2>Additional plots</h2>
+                  </header>
+                    <div id='plot-timings'></div>
+                  
+                </article>
+
+
+
+                <article>
+                  <header>
+                    <h2>High resolution figures</h2>
+                    <p>Full-scale interactive image comparison</p>
+                  </header>
+                  <p><strong>Usage: </strong> for each figure, select one method on each side using the left and right dropdown menus. Move the vertical slider horizontally to compare the two images.</p>
+
+                  @image_list@
+
+                </article>
+
+            </div>
+          </div>
+        </section>
+
+      <!-- Footer -->
+        <div id="footer">
+          <!-- Copyright -->
+            <div class="copyright">
+              <ul class="menu">
+                <li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+              </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/jquery.dropotron.min.js"></script>
+      <script src="assets/js/browser.min.js"></script>
+      <script src="assets/js/breakpoints.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <script src="assets/js/main.js"></script>
+      <script src="assets/js/plotly-latest.min.js" charset="utf-8"></script>
+      <script src="assets/js/before-after.min.js" charset="utf-8"></script>
+      <script src="assets/js/index_plot.js" charset="utf-8"></script>
+
+
+<script>
+function updateFigure(divid){
+    image = $('#dropdown-'+divid)[0].value;
+    document.getElementById(divid).src = image; 
+}
+
+</script>
+
+  </body>
+</html>
