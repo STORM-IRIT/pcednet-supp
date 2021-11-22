@@ -24,7 +24,7 @@
     <div id="page-wrapper">
       <!-- Header -->
         <div id="header">
-          <h1><a href="index.html" id="logo">@paper_title@<br/><em>Supplementary materials</em></a></h1>
+          <h1><a href="index.html" id="logo">@paper_title@</a></h1>
           <!-- Nav -->
             <nav id="nav">
               <ul>
@@ -46,18 +46,31 @@
               <!-- Content -->
 
                 <article>
-                  <header>
-		    <h2>@paper_title@</h2>
-                    <p>Supplementary materials.</p>
-                  </header>
+                  <p style="text-align: justify">This website presents supplementary materials accompanying the paper: </p>
+                  <blockquote>
+                  <b>@paper_title@</b><br>
+                    <a href="dl.acm.org/profile/99659912201" target="_blank" title="Chems-Eddine Himeur ACM profile">Chems-Eddine Himeur</a>,
+                      <a href="dl.acm.org/profile/99658759115" target="_blank" title="Thibault Lejemble ACM profile">Thibault Lejemble</a>,
+                      <a href="www.irit.fr/~Thomas.Pellegrini/" target="_blank" title="Thomas Pellegrini personal webpage">Thomas Pellegrini</a>,
+                      <a href="www.irit.fr/~Mathias.Paulin/" target="_blank" title="Mathias Paulin personal webpage">Mathias Paulin</a>,
+                      <a href="www.irit.fr/~Loic.Barthe/" target="_blank" title="Loic Barthe personal webpage">Loic Barthe</a>,
+                      <a href="www.irit.fr/~Nicolas.Mellado/" target="_blank" title="Nicolas Mellado personal webpage">Nicolas Mellado</a><br>
+                    CNRS, IRIT, Université de Toulouse, France. <br>
+                  ACM Transactions on Graphics. Volume 41. Issue 1. February 2022. Article No.: 10. pp 1–21.
+                    <a href="https://doi.org/10.1145/3481804" target="_blank">https://doi.org/10.1145/3481804</a>
+                  </blockquote>
 
-                  <h3>Abstract</h3>
-                  <p> In recent years, Convolutional Neural Networks (CNN) have proven to be efficient analysis tools for processing point clouds, e.g., for reconstruction, segmentation, and classification. In this article, we focus on the classification of edges in point clouds, where both edges and their surrounding are described. We propose a new parameterization adding to each point a set of differential information on its surrounding shape reconstructed at different scales. These parameters, stored in a Scale-Space Matrix (SSM), provide a well-suited information from which an adequate neural network can learn the description of edges and use it to efficiently detect them in acquired point clouds. After successfully applying a multi-scale CNN on SSMs for the efficient classification of edges and their neighborhood, we propose a new lightweight neural network architecture outperforming the CNN in learning time, processing time, and classification capabilities. Our architecture is compact, requires small learning sets, is very fast to train, and classifies millions of points in seconds.</p>
+                  <p style="text-align: center">
+                  <a href="assets/PCEDNET_paper.pdf" target="_blank" title="Preprint download"><img width="100%" src="assets/PCEDNET_thumb.jpg" alt="Paper thumbnail">(click to download preprint)</a>
+                  </p>
 
-                  <h3>Content of this website</h3>
-                  <p>We present interactive visualization of our submission experimental results. The content is anonymized, and should be accessible with any modern web browser. Our results on the different datasets are accessible using the menu on the top. Additional plots, side-by-side comparisons high-resolution versions of the paper figures are available further on this page.</p>
+                  <p style="text-align: justify">
+                    The dataset webpages present interactive visualizations of our quantitative experiments and comparisons.
+                    Additional plots, side-by-side comparisons high-resolution versions of the paper figures are available further on this page.
+                    Code source, building system and data of this website can be found at: <a href="github.com/STORM-IRIT/pcednet-supp" target="_blank">github.com/STORM-IRIT/pcednet-supp</a>.
+                  </p>
 
-                  <h3>Bibtex entry</h3>
+                  <p style="text-align: justify"> <b>Abstract:</b> In recent years, Convolutional Neural Networks (CNN) have proven to be efficient analysis tools for processing point clouds, e.g., for reconstruction, segmentation, and classification. In this article, we focus on the classification of edges in point clouds, where both edges and their surrounding are described. We propose a new parameterization adding to each point a set of differential information on its surrounding shape reconstructed at different scales. These parameters, stored in a Scale-Space Matrix (SSM), provide a well-suited information from which an adequate neural network can learn the description of edges and use it to efficiently detect them in acquired point clouds. After successfully applying a multi-scale CNN on SSMs for the efficient classification of edges and their neighborhood, we propose a new lightweight neural network architecture outperforming the CNN in learning time, processing time, and classification capabilities. Our architecture is compact, requires small learning sets, is very fast to train, and classifies millions of points in seconds.</p>
 
                   <pre style="font-family:monospace; font-size: 75%; line-height: 100%;">@article{10.1145/3481804,
   author     = {Himeur, Chems-Eddine and Lejemble, Thibault and Pellegrini, Thomas and Paulin, Mathias and Barthe, Loic and Mellado, Nicolas},
@@ -72,14 +85,18 @@
   journal    = {ACM Trans. Graph.},
   month      = {nov}, articleno = {10}, numpages = {21},
   keywords   = {low resource computing, energy efficiency, datasets, edge detection, neural networks, Point clouds processing}
-}</pre>
+}
+                  </pre>
+
+
+                <iframe width="100%" src="https://www.youtube.com/embed/V-P0luB9aiE" title="PCEDNet: Youtube video demonstrating paper results" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                 </article>
 
-                <article>
-                  <header>
-                    <h2>Naming conventions</h2>
-                  </header>
+              <article>
+                <header>
+                  <h2>Naming conventions</h2>
+                </header>
                   <h3>Classifications</h3>
                   <ul class='two-c'>
                     @method_list@
