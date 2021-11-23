@@ -20,11 +20,11 @@ experiments = [f for f in listdir(datasetPath) if dirname(join(datasetPath, f)) 
 image_html_template="""
                       <h3 style="text-align:center;">{F_spaces}</h3>
                       <div class="row">
-                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-{F}_left" onchange="updateFigure('{F}_left')">{opts}</select></p></section>
-                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-{F}_right" onchange="updateFigure('{F}_right')">{opts}</select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-{F}_left" onchange="updateFigure('{F}_left')">{optsleft}</select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-{F}_right" onchange="updateFigure('{F}_right')">{optsright}</select></p></section>
                     </div>
                     <div class="row">
-                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="{F}_right" src="{first}"><div class=" resize"><img id="{F}_left" src="{second}"></div><span class="handle"></span></div></section>
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="{F}_right" src="{second}"><div class=" resize"><img id="{F}_left" src="{first}"></div><span class="handle"></span></div></section>
                     </div>
 """
 threejs_wrappers = {
@@ -106,9 +106,13 @@ with open('index_template.html', 'r') as myfile:
         if figurefiles:
 
             print ("Processing " + f)
-            option_list = ""
+            first_option_list = ""
+            second_option_list = ""
 
-            for p in figurefiles:
+            firstselectid  = 0
+            secondselectid = (0,1)[len(figurefiles)>1];
+
+            for count, p in enumerate(figurefiles):
                 htmlpngpath = p.replace(deploymentPath+("/"),"")
                 method = htmlpngpath.split('/')[-1:][0][:-4]
                 if method in um.methods_descr.keys():
@@ -116,10 +120,19 @@ with open('index_template.html', 'r') as myfile:
                 else:
                     methodname = method.replace('_', ' ')
                     print("Warning unknown method {m}, using name={name}".format(m=method, name=methodname))
-                option_list = option_list + '<option value="{path}">{name}</option>'.format(name=methodname, path=htmlpngpath)
+                first_option_list = first_option_list + '<option value="{path}" {selected}>{name}</option>' \
+                    .format(name=methodname, path=htmlpngpath,selected=("", "selected")[count == firstselectid])
+                second_option_list = second_option_list + '<option value="{path}" {selected}>{name}</option>' \
+                    .format(name=methodname, path=htmlpngpath,selected=("", "selected")[count == secondselectid])
 
-            first = figurefiles[0].replace(deploymentPath+("/"),"")
-            image_list = image_list +image_html_template.format(opts=option_list,F=f,F_spaces=f.replace('_',' '),first=first, second=first);
+            first = figurefiles[firstselectid].replace(deploymentPath+("/"),"")
+            second = figurefiles[secondselectid].replace(deploymentPath+("/"),"")
+            image_list = image_list +image_html_template.format(optsleft=first_option_list,
+                                                                optsright=second_option_list,
+                                                                F=f,
+                                                                F_spaces=f.replace('_',' '),
+                                                                first=first,
+                                                                second=second);
     webcontent = um.processWildcards( webcontent, {"@image_list@":image_list} )
 
     with open( join(deploymentPath,'index.html'), 'wt') as myfile:
