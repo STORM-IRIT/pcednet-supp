@@ -87,56 +87,61 @@ repgeneral = {
 
 
 ### Process index
-with open('index_template.html', 'r') as myfile:
-    webcontent = myfile.read()
-    webcontent = um.processWildcards( webcontent, repgeneral )
+pagetemplates = ["index", "software"]
+for templateName in pagetemplates:
+    templateFilename = templateName + "_template.html"
+    with open(templateFilename, 'r') as myfile:
+        print ("Preparing page " + templateName)
+        webcontent = myfile.read()
+        webcontent = um.processWildcards( webcontent, repgeneral )
 
-    # Generate image list
-    image_list=""
-    figures = [f for f in listdir(imagesPath) if dirname(join(imagesPath, f))]
+        if templateName == "index":
+            # Generate image list
+            image_list=""
+            figures = [f for f in listdir(imagesPath) if dirname(join(imagesPath, f))]
 
-    figures.sort()
+            figures.sort()
 
-    for f in figures:
-        pngfiles = glob.glob(join(imagesPath,f)+'/*.png')
-        jpgfiles = glob.glob(join(imagesPath,f)+'/*.jpg')
+            for f in figures:
+                pngfiles = glob.glob(join(imagesPath,f)+'/*.png')
+                jpgfiles = glob.glob(join(imagesPath,f)+'/*.jpg')
 
-        figurefiles = pngfiles + jpgfiles
+                figurefiles = pngfiles + jpgfiles
 
-        if figurefiles:
+                if figurefiles:
 
-            print ("Processing " + f)
-            first_option_list = ""
-            second_option_list = ""
+                    print ("Processing " + f)
+                    first_option_list = ""
+                    second_option_list = ""
 
-            firstselectid  = 0
-            secondselectid = (0,1)[len(figurefiles)>1];
+                    firstselectid  = 0
+                    secondselectid = (0,1)[len(figurefiles)>1];
 
-            for count, p in enumerate(figurefiles):
-                htmlpngpath = p.replace(deploymentPath+("/"),"")
-                method = htmlpngpath.split('/')[-1:][0][:-4]
-                if method in um.methods_descr.keys():
-                    methodname = um.methods_descr[method]
-                else:
-                    methodname = method.replace('_', ' ')
-                    print("Warning unknown method {m}, using name={name}".format(m=method, name=methodname))
-                first_option_list = first_option_list + '<option value="{path}" {selected}>{name}</option>' \
-                    .format(name=methodname, path=htmlpngpath,selected=("", "selected")[count == firstselectid])
-                second_option_list = second_option_list + '<option value="{path}" {selected}>{name}</option>' \
-                    .format(name=methodname, path=htmlpngpath,selected=("", "selected")[count == secondselectid])
+                    for count, p in enumerate(figurefiles):
+                        htmlpngpath = p.replace(deploymentPath+("/"),"")
+                        method = htmlpngpath.split('/')[-1:][0][:-4]
+                        if method in um.methods_descr.keys():
+                            methodname = um.methods_descr[method]
+                        else:
+                            methodname = method.replace('_', ' ')
+                            print("Warning unknown method {m}, using name={name}".format(m=method, name=methodname))
+                        first_option_list = first_option_list + '<option value="{path}" {selected}>{name}</option>' \
+                            .format(name=methodname, path=htmlpngpath,selected=("", "selected")[count == firstselectid])
+                        second_option_list = second_option_list + '<option value="{path}" {selected}>{name}</option>' \
+                            .format(name=methodname, path=htmlpngpath,selected=("", "selected")[count == secondselectid])
 
-            first = figurefiles[firstselectid].replace(deploymentPath+("/"),"")
-            second = figurefiles[secondselectid].replace(deploymentPath+("/"),"")
-            image_list = image_list +image_html_template.format(optsleft=first_option_list,
-                                                                optsright=second_option_list,
-                                                                F=f,
-                                                                F_spaces=f.replace('_',' '),
-                                                                first=first,
-                                                                second=second);
-    webcontent = um.processWildcards( webcontent, {"@image_list@":image_list} )
+                    first = figurefiles[firstselectid].replace(deploymentPath+("/"),"")
+                    second = figurefiles[secondselectid].replace(deploymentPath+("/"),"")
+                    image_list = image_list +image_html_template.format(optsleft=first_option_list,
+                                                                        optsright=second_option_list,
+                                                                        F=f,
+                                                                        F_spaces=f.replace('_',' '),
+                                                                        first=first,
+                                                                        second=second);
+            webcontent = um.processWildcards( webcontent, {"@image_list@":image_list} )
 
-    with open( join(deploymentPath,'index.html'), 'wt') as myfile:
-        myfile.write(webcontent)
+        with open( join(deploymentPath,templateName+'.html'), 'wt') as myfile:
+            myfile.write(webcontent)
 
 for eid, e in enumerate(experiments):
     if um.experiment_skip[e]: continue
