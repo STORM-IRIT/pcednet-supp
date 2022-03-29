@@ -5,6 +5,7 @@ from io import StringIO
 
 import numpy as np
 import utilsmodule as um
+import releasesmodule as releases
 
 script_path    = dirname(abspath(__file__))
 datasetPath    = join(script_path,"data/")
@@ -139,6 +140,9 @@ for templateName in pagetemplates:
                                                                         first=first,
                                                                         second=second);
             webcontent = um.processWildcards( webcontent, {"@image_list@":image_list} )
+
+        elif templateName == "software":
+            webcontent = um.processWildcards( webcontent,{"@release_list@":releases.build_release_list()})
 
         with open( join(deploymentPath,templateName+'.html'), 'wt') as myfile:
             myfile.write(webcontent)
