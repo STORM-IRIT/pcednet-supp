@@ -11,7 +11,8 @@ releases = {
         },
         "changelog": [
             """First version of the Demo, allowing to classify point-clouds with pre-trained networks. 
-Point clouds are loaded from ply files with oriented normals (fields nx, ny, nz)."""
+Point clouds are loaded from ply files with oriented normals (fields nx, ny, nz).""",
+            "Known bugs: there is a display error when loading multiple files successively."
         ]
     }
 }
