@@ -40,7 +40,7 @@ def build_release_list():
                ' '.join(['<li><b>{key}</b>: <a href="{value}">{value}</a></li>'.format(key=k, value=i) for k,i in r["url"].items()]) + \
                "</ul>"
 
-        pstring='<p style="text-align: justify">'
+        pstring='<p style="text-align: justify; margin-bottom:0px;">'
 
         rep = {
             "@rversion@": v,
