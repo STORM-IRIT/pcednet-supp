@@ -50,15 +50,44 @@
           <div id="content">
             <!-- Content -->
             <article>
+              <h2>Replicability</h2>
+              <p style="text-align: justify; margin-bottom:0px;">We provide pre-compiled binaries allowing to replicate materials used in Figures: 1.b, 7, 15, 17, 18, 19, Tables 4, 7, 8.</p>
+              <p style="text-align: justify; margin-bottom:0px;"><b>Disclaimer</b>:The licensed software "as is," and makes no express or implied warranty of any kind. PCEDNet authors specifically disclaims all indirect or implied warranties to the full extent allowed by applicable law, including without limitation all implied warranties of, non-infringement, merchantability, title or fitness for any particular purpose. No oral or written information or advice given by the authors shall create a warranty.</p>
+              <p style="text-align: justify; margin-bottom:0px;"><b>Resources</b>: download zip file containing a pre-compiled software reproducing the figures material, a python script downloading the assets and calling the software. [<a title="Download replicability material for PCEDNet (linux, debian based)" href="https://www.irit.fr/STORM/site/files-web/demos/2022-pcednet/pced-replicability-debian.zip">Linux (debian based)</a>].</p>
+              <p style="text-align: justify; margin-bottom:0px;"><b>Usage</b>:</p>
+              <ol>
+              <li>Download and unzip archive</li>
+              <li>Install dependencies (from unzipped folder): <pre>$ python3 -m pip install -r requirements.txt</pre> </li>
+              <li>Replicate results (from unzipped folder): <pre>$python3 pced-replicability.py</pre>This step may take some time as it fetches datasets and pre-compiled networks from zenodo (<a href="https://zenodo.org/record/7230148">link to 7230148</a>), then compute Scale-Space Matrices, and finally classify point clouds. </li>
+              </ol>
+              <p style="text-align: justify; margin-bottom:0px;"><b>Output</b> are generated in the folder <code>generated_data</code> as follows</p>
+              <ul>
+                <li>Figure 1b: <code>fig1b_0133_abc.ply</code>,<code>fig1b_0133_default.ply</code> </li>
+                <li>Figure 7: <code>fig7_Frac2GaussXX.ply</code></li>
+                <li>Figure 15: <code>fig15_7029_abc.ply</code>,<code>fig15_7029_default.ply</code> </li>
+                <li>Figure 17: <code>fig17_lans.ply</code> </li>
+                <li>Figure 18: <code>fig18_empire.ply</code> </li>
+                <li>Figure 19: <code>fig19_church.ply</code> </li>
+                <li>Table 4: <code>tab4.csv</code> </li>
+                <li>Table 7: <code>tab7.csv</code> </li>
+                <li>Table 8: <code>tab8.csv</code> </li>
+              </ul>
+              <p style="text-align: justify; margin-bottom:0px;"><b>Note about metrics</b>: in the paper, numbers are reported for multiple runs and multiple networks trained with random initialization. The provided packages use one pre-trained network per dataset, so numbers may be slightly different from those reported in the paper.</p>
+              <p style="text-align: justify; margin-bottom:0px;"><b>Note about performances</b>: timings may vary depending on the capabilities of the running computer (from a couple of hours to days from our experiments). The computation of Table 8 on the whole ABC dataset is time-consuming, and so numbers are computed for a subset of 17 models by default. Run python script with option <code>--full-abc</code> to process the 7k models from abc dataset. </p>
+            </article>
+
+            <article>
+              <h2>Standalone demo</h2>
               <p style="text-align: justify; margin-bottom:0px;"><b>Disclaimer</b>:The licensed software "as is," and makes no express or implied warranty of any kind. PCEDNet authors specifically disclaims all indirect or implied warranties to the full extent allowed by applicable law, including without limitation all implied warranties of, non-infringement, merchantability, title or fitness for any particular purpose. No oral or written information or advice given by the authors shall create a warranty.</p>
               <p style="text-align: justify; margin-bottom:0px;"><b>Bug reports</b>: Please report bugs at: <a title="Report issue" href="https://github.com/STORM-IRIT/pcednet-supp/issues">https://github.com/STORM-IRIT/pcednet-supp/issues</a>.</p>
               <p style="text-align: justify; margin-bottom:0px;"><b>Resources</b>: This demo requires pretrained networks (<a title="Download PCEDNet pretrained networks" href="https://bit.ly/3Ntb062">clic here to download</a>).</p>
             </article>
 
             @release_list@
+
             <article>
               <h2>Gallery</h2>
-            <iframe width="30%" src="https://www.youtube.com/embed/jbsxPCLrfuM" title="PCEDNet: Classifier demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+              <iframe width="30%" src="https://www.youtube.com/embed/jbsxPCLrfuM" title="PCEDNet: Classifier demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </article>
           </div>
         </div>
