@@ -20,7 +20,7 @@ Point clouds are loaded from ply files with oriented normals (fields nx, ny, nz)
 
 release_article_template = """
             <article>
-              <h2>@rtitle@</h2>
+              <h3>@rtitle@</h3>
               <ul>
                  <li><b>Release version</b>: @rversion@</li>
                  <li><b>Release date</b>: @rdate@</li>
