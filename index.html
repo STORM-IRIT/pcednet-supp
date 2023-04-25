@@ -1,0 +1,437 @@
+<!DOCTYPE HTML>
+<!--
+  Arcana by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>A Light-Weight Neural Network for Fast and Interactive Edge Detection in 3D Point Clouds</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="author"   content="Nicolas Mellado">
+    <meta name="description" content="Project page for PCEDNet: A Lightweight Neural Network for Fast and Interactive Edge Detection in 3D Point Clouds">
+    <meta name="keywords" content="PCEDNet, Deep Learning, Point cloud, Edge Detection, 3D, Lidar, Interactive Learning">
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/before-after.min.css" />
+
+    <style>
+.two-c {
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+}
+    </style>
+  </head>
+  <body class="is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+        <div id="header">
+          <h1><a href="index.html" id="logo">A Light-Weight Neural Network for Fast and Interactive Edge Detection in 3D Point Clouds</a></h1>
+          <!-- Nav -->
+            <nav id="nav">
+              <ul>
+                <li class="current"><a href="index.html">Home</a></li>
+                <li><a href="software.html">Software</a></li>
+                <li><a href="default.html">Default Dataset</a></li>
+                <li><a href="abc.html">ABC Dataset</a></li>
+                <li><a href="abc_noise_0.04.html">ABC Dataset (with noise)</a></li>
+                <li><a href="shrec.html">SHREC: Curve Detection Dataset</a></li>
+              </ul>
+            </nav>
+
+        </div>
+
+      <!-- Main -->
+        <section class="wrapper style1">
+          <div class="container">
+            <div id="content">
+
+              <!-- Content -->
+
+                <article>
+                  <p style="text-align: justify">This website presents supplementary materials accompanying the paper: </p>
+                  <blockquote>
+                  <b>A Light-Weight Neural Network for Fast and Interactive Edge Detection in 3D Point Clouds</b><br>
+                    <a href="http://dl.acm.org/profile/99659912201" target="_blank" title="Chems-Eddine Himeur ACM profile">Chems-Eddine Himeur</a>,
+                      <a href="http://dl.acm.org/profile/99658759115" target="_blank" title="Thibault Lejemble ACM profile">Thibault Lejemble</a>,
+                      <a href="http://www.irit.fr/~Thomas.Pellegrini/" target="_blank" title="Thomas Pellegrini personal webpage">Thomas Pellegrini</a>,
+                      <a href="http://www.irit.fr/~Mathias.Paulin/" target="_blank" title="Mathias Paulin personal webpage">Mathias Paulin</a>,
+                      <a href="http://www.irit.fr/~Loic.Barthe/" target="_blank" title="Loic Barthe personal webpage">Loic Barthe</a>,
+                      <a href="http://www.irit.fr/~Nicolas.Mellado/" target="_blank" title="Nicolas Mellado personal webpage">Nicolas Mellado</a><br>
+                    CNRS, IRIT, Université de Toulouse, France. <br>
+                  ACM Transactions on Graphics. Volume 41. Issue 1. February 2022. Article No.: 10. pp 1–21.
+                    <a href="https://doi.org/10.1145/3481804" target="_blank">https://doi.org/10.1145/3481804</a>
+                  </blockquote>
+
+                  <p style="text-align: center">
+                  <a href="assets/PCEDNET_paper.pdf" target="_blank" title="Preprint download"><img width="100%" src="assets/PCEDNET_thumb.jpg" alt="Paper thumbnail">(click to download preprint)</a>
+                  </p>
+
+                  <p style="text-align: justify">
+                    The dataset webpages present interactive visualizations of our quantitative experiments and comparisons.
+                    Additional plots, side-by-side comparisons high-resolution versions of the paper figures are available further on this page.
+                    Code source, building system and data of this website can be found at: <a href="http://github.com/STORM-IRIT/pcednet-supp" target="_blank">github.com/STORM-IRIT/pcednet-supp</a>.
+                  </p>
+
+                  <p style="text-align: justify"> <b>Abstract:</b> In recent years, Convolutional Neural Networks (CNN) have proven to be efficient analysis tools for processing point clouds, e.g., for reconstruction, segmentation, and classification. In this article, we focus on the classification of edges in point clouds, where both edges and their surrounding are described. We propose a new parameterization adding to each point a set of differential information on its surrounding shape reconstructed at different scales. These parameters, stored in a Scale-Space Matrix (SSM), provide a well-suited information from which an adequate neural network can learn the description of edges and use it to efficiently detect them in acquired point clouds. After successfully applying a multi-scale CNN on SSMs for the efficient classification of edges and their neighborhood, we propose a new lightweight neural network architecture outperforming the CNN in learning time, processing time, and classification capabilities. Our architecture is compact, requires small learning sets, is very fast to train, and classifies millions of points in seconds.</p>
+
+                  <pre style="font-family:monospace; font-size: 75%; line-height: 100%;">@article{10.1145/3481804,
+  author     = {Himeur, Chems-Eddine and Lejemble, Thibault and Pellegrini, Thomas and Paulin, Mathias and Barthe, Loic and Mellado, Nicolas},
+  title      = {PCEDNet: A Lightweight Neural Network for Fast and Interactive Edge Detection in 3D Point Clouds},
+  year       = {2021},
+  issue_date = {February 2022},
+  publisher  = {Association for Computing Machinery},
+  address    = {New York, NY, USA},
+  volume     = {41}, number = {1},
+  issn       = {0730-0301},
+  url        = {https://doi.org/10.1145/3481804}, doi = {10.1145/3481804},
+  journal    = {ACM Trans. Graph.},
+  month      = {nov}, articleno = {10}, numpages = {21},
+  keywords   = {low resource computing, energy efficiency, datasets, edge detection, neural networks, Point clouds processing}
+}
+                  </pre>
+
+
+                <iframe width="100%" src="https://www.youtube.com/embed/V-P0luB9aiE" title="PCEDNet: Youtube video demonstrating paper results" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                </article>
+
+              <article>
+                <header>
+                  <h2>Naming conventions</h2>
+                </header>
+                  <h3>Classifications</h3>
+                  <ul class='two-c'>
+                    <li><strong>PCED(D)</strong>: PCED (trained on Default)</li>
+<li><strong>PCED(D)</strong>: PCED-2C (trained on Default)</li>
+<li><strong>PCED(E)</strong>: PCED-2C (trained on EC)</li>
+<li><strong>PCED(A)</strong>: PCED-2C (trained on ABC)</li>
+<li><strong>PCED(D)-ABL-REDUC4</strong>: PCED (trained on Default) - 4 scales</li>
+<li><strong>PCED(D)-ABL-REDUC8</strong>: PCED (trained on Default) - 8 scales</li>
+<li><strong>PCED(D)-ABL-REDUC32</strong>: PCED (trained on Default) - 32 scales</li>
+<li><strong>PCED(D)-ABL-REDUC64</strong>: PCED (trained on Default) - 64 scales</li>
+<li><strong>PCED(D)-ABL-REDUC128</strong>: PCED (trained on Default) - 128 scales</li>
+<li><strong>PCED(S)</strong>: PCED-2C (trained on Shrec)</li>
+<li><strong>PCED(D) Ext</strong>: PCED (trained on Default - P = Sharp+Smooth)</li>
+<li><strong>FC(D)</strong>: FC (trained on Default)</li>
+<li><strong>FC(D)</strong>: FC-2C (trained on Default)</li>
+<li><strong>FC(A)</strong>: FC-2C (trained on ABC)</li>
+<li><strong>FC(S)</strong>: FC-2C (trained on Shrec)</li>
+<li><strong>FC(D) S+S</strong>: FC (trained on Default - P = Sharp+Smooth)</li>
+<li><strong>CNN(D)</strong>: CNN (trained on Default)</li>
+<li><strong>CNN(D)</strong>: CNN-2C (trained on Default)</li>
+<li><strong>CNN(A)</strong>: CNN-2C (trained on ABC)</li>
+<li><strong>CNN(S)</strong>: CNN-2C (trained on Shrec)</li>
+<li><strong>CNN(D) S+S</strong>: CNN (trained on Default - P = Sharp+Smooth)</li>
+<li><strong>CA</strong>: Covariance Analysis</li>
+<li><strong>FEE</strong>: Feature Edge Extraction</li>
+<li><strong>PCPNet(D)</strong>: PCPNet (trained on Default)</li>
+<li><strong>PCPNet(A)</strong>: PCPNet (trained on ABC)</li>
+<li><strong>ECNet</strong>: Edge-aware Point set Consolidation Network (Pre-trained)</li>
+<li><strong>GT</strong>: Ground Truth</li>
+                  </ul>
+                  <p>Please refer to the paper for technical details and references.</p>
+
+                  <h3>Experiments</h3>
+                  <ul class='two-c'>
+                    <li><strong>ABC</strong>: ABC Dataset</li>
+<li><strong>ABC_NOISE_0.04</strong>: ABC Dataset (noisy version)</li>
+<li><strong>SHREC</strong>: Feature Curve Extraction on Triangle Meshes (SHREC'19) - Sharp edges</li>
+<li><strong>DEFAULT</strong>: Default Dataset: simple geometrical objects with noise</li>
+                  </ul>
+                </article>
+
+
+                <article>
+                  <header>
+                    <h2>Additional plots</h2>
+                  </header>
+                    <div id='plot-timings'></div>
+                  
+                </article>
+
+
+
+                <article>
+                  <header>
+                    <h2>High resolution figures</h2>
+                    <p>Full-scale interactive image comparison</p>
+                  </header>
+                  <p><strong>Usage: </strong> for each figure, select one method on each side using the left and right dropdown menus. Move the vertical slider horizontally to compare the two images.</p>
+
+                  
+                      <h3 style="text-align:center;">Figure 09 bottom</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_09_bottom_left" onchange="updateFigure('Figure_09_bottom_left')"><option value="images/Figure_09_bottom/abcreduc8.jpg" selected>PCED (trained on Default) - 8 scales</option><option value="images/Figure_09_bottom/abcreduc32.jpg" >PCED (trained on Default) - 32 scales</option><option value="images/Figure_09_bottom/abcreduc128.jpg" >PCED (trained on Default) - 128 scales</option><option value="images/Figure_09_bottom/abcreduc64.jpg" >PCED (trained on Default) - 64 scales</option><option value="images/Figure_09_bottom/abcreduc4.jpg" >PCED (trained on Default) - 4 scales</option><option value="images/Figure_09_bottom/pced.jpg" >PCED (trained on Default)</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_09_bottom_right" onchange="updateFigure('Figure_09_bottom_right')"><option value="images/Figure_09_bottom/abcreduc8.jpg" >PCED (trained on Default) - 8 scales</option><option value="images/Figure_09_bottom/abcreduc32.jpg" selected>PCED (trained on Default) - 32 scales</option><option value="images/Figure_09_bottom/abcreduc128.jpg" >PCED (trained on Default) - 128 scales</option><option value="images/Figure_09_bottom/abcreduc64.jpg" >PCED (trained on Default) - 64 scales</option><option value="images/Figure_09_bottom/abcreduc4.jpg" >PCED (trained on Default) - 4 scales</option><option value="images/Figure_09_bottom/pced.jpg" >PCED (trained on Default)</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_09_bottom_right" src="images/Figure_09_bottom/abcreduc32.jpg"><div class=" resize"><img id="Figure_09_bottom_left" src="images/Figure_09_bottom/abcreduc8.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 09 middle</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_09_middle_left" onchange="updateFigure('Figure_09_middle_left')"><option value="images/Figure_09_middle/abcreduc8.jpg" selected>PCED (trained on Default) - 8 scales</option><option value="images/Figure_09_middle/abcreduc32.jpg" >PCED (trained on Default) - 32 scales</option><option value="images/Figure_09_middle/abcreduc128.jpg" >PCED (trained on Default) - 128 scales</option><option value="images/Figure_09_middle/abcreduc64.jpg" >PCED (trained on Default) - 64 scales</option><option value="images/Figure_09_middle/abcreduc4.jpg" >PCED (trained on Default) - 4 scales</option><option value="images/Figure_09_middle/pced.jpg" >PCED (trained on Default)</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_09_middle_right" onchange="updateFigure('Figure_09_middle_right')"><option value="images/Figure_09_middle/abcreduc8.jpg" >PCED (trained on Default) - 8 scales</option><option value="images/Figure_09_middle/abcreduc32.jpg" selected>PCED (trained on Default) - 32 scales</option><option value="images/Figure_09_middle/abcreduc128.jpg" >PCED (trained on Default) - 128 scales</option><option value="images/Figure_09_middle/abcreduc64.jpg" >PCED (trained on Default) - 64 scales</option><option value="images/Figure_09_middle/abcreduc4.jpg" >PCED (trained on Default) - 4 scales</option><option value="images/Figure_09_middle/pced.jpg" >PCED (trained on Default)</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_09_middle_right" src="images/Figure_09_middle/abcreduc32.jpg"><div class=" resize"><img id="Figure_09_middle_left" src="images/Figure_09_middle/abcreduc8.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 09 top</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_09_top_left" onchange="updateFigure('Figure_09_top_left')"><option value="images/Figure_09_top/abcreduc8.jpg" selected>PCED (trained on Default) - 8 scales</option><option value="images/Figure_09_top/abcreduc32.jpg" >PCED (trained on Default) - 32 scales</option><option value="images/Figure_09_top/abcreduc128.jpg" >PCED (trained on Default) - 128 scales</option><option value="images/Figure_09_top/abcreduc64.jpg" >PCED (trained on Default) - 64 scales</option><option value="images/Figure_09_top/abcreduc4.jpg" >PCED (trained on Default) - 4 scales</option><option value="images/Figure_09_top/pced.jpg" >PCED (trained on Default)</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_09_top_right" onchange="updateFigure('Figure_09_top_right')"><option value="images/Figure_09_top/abcreduc8.jpg" >PCED (trained on Default) - 8 scales</option><option value="images/Figure_09_top/abcreduc32.jpg" selected>PCED (trained on Default) - 32 scales</option><option value="images/Figure_09_top/abcreduc128.jpg" >PCED (trained on Default) - 128 scales</option><option value="images/Figure_09_top/abcreduc64.jpg" >PCED (trained on Default) - 64 scales</option><option value="images/Figure_09_top/abcreduc4.jpg" >PCED (trained on Default) - 4 scales</option><option value="images/Figure_09_top/pced.jpg" >PCED (trained on Default)</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_09_top_right" src="images/Figure_09_top/abcreduc32.jpg"><div class=" resize"><img id="Figure_09_top_left" src="images/Figure_09_top/abcreduc8.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 14 bottom</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_14_bottom_left" onchange="updateFigure('Figure_14_bottom_left')"><option value="images/Figure_14_bottom/pcpnet.jpg" selected>PCPNet (trained on Default)</option><option value="images/Figure_14_bottom/fc.jpg" >FC (trained on Default)</option><option value="images/Figure_14_bottom/ecnet.jpg" >Edge-aware Point set Consolidation Network (Pre-trained)</option><option value="images/Figure_14_bottom/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_14_bottom/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_14_bottom/ca.jpg" >Covariance Analysis</option><option value="images/Figure_14_bottom/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_14_bottom/gt.jpg" >Ground Truth</option><option value="images/Figure_14_bottom/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_14_bottom_right" onchange="updateFigure('Figure_14_bottom_right')"><option value="images/Figure_14_bottom/pcpnet.jpg" >PCPNet (trained on Default)</option><option value="images/Figure_14_bottom/fc.jpg" selected>FC (trained on Default)</option><option value="images/Figure_14_bottom/ecnet.jpg" >Edge-aware Point set Consolidation Network (Pre-trained)</option><option value="images/Figure_14_bottom/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_14_bottom/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_14_bottom/ca.jpg" >Covariance Analysis</option><option value="images/Figure_14_bottom/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_14_bottom/gt.jpg" >Ground Truth</option><option value="images/Figure_14_bottom/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_14_bottom_right" src="images/Figure_14_bottom/fc.jpg"><div class=" resize"><img id="Figure_14_bottom_left" src="images/Figure_14_bottom/pcpnet.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 14 top</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_14_top_left" onchange="updateFigure('Figure_14_top_left')"><option value="images/Figure_14_top/pcpnet.jpg" selected>PCPNet (trained on Default)</option><option value="images/Figure_14_top/fc.jpg" >FC (trained on Default)</option><option value="images/Figure_14_top/ecnet.jpg" >Edge-aware Point set Consolidation Network (Pre-trained)</option><option value="images/Figure_14_top/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_14_top/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_14_top/ca.jpg" >Covariance Analysis</option><option value="images/Figure_14_top/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_14_top/gt.jpg" >Ground Truth</option><option value="images/Figure_14_top/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_14_top_right" onchange="updateFigure('Figure_14_top_right')"><option value="images/Figure_14_top/pcpnet.jpg" >PCPNet (trained on Default)</option><option value="images/Figure_14_top/fc.jpg" selected>FC (trained on Default)</option><option value="images/Figure_14_top/ecnet.jpg" >Edge-aware Point set Consolidation Network (Pre-trained)</option><option value="images/Figure_14_top/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_14_top/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_14_top/ca.jpg" >Covariance Analysis</option><option value="images/Figure_14_top/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_14_top/gt.jpg" >Ground Truth</option><option value="images/Figure_14_top/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_14_top_right" src="images/Figure_14_top/fc.jpg"><div class=" resize"><img id="Figure_14_top_left" src="images/Figure_14_top/pcpnet.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 15</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_15_left" onchange="updateFigure('Figure_15_left')"><option value="images/Figure_15/pcpnet.jpg" selected>PCPNet (trained on Default)</option><option value="images/Figure_15/fc.jpg" >FC (trained on Default)</option><option value="images/Figure_15/ecnet.jpg" >Edge-aware Point set Consolidation Network (Pre-trained)</option><option value="images/Figure_15/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_15/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_15/ca.jpg" >Covariance Analysis</option><option value="images/Figure_15/cnnabc.jpg" >CNN-2C (trained on ABC)</option><option value="images/Figure_15/fcabc.jpg" >FC-2C (trained on ABC)</option><option value="images/Figure_15/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_15/tc.jpg" >PCED-2C (trained on Default)</option><option value="images/Figure_15/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_15/gt.jpg" >Ground Truth</option><option value="images/Figure_15/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_15_right" onchange="updateFigure('Figure_15_right')"><option value="images/Figure_15/pcpnet.jpg" >PCPNet (trained on Default)</option><option value="images/Figure_15/fc.jpg" selected>FC (trained on Default)</option><option value="images/Figure_15/ecnet.jpg" >Edge-aware Point set Consolidation Network (Pre-trained)</option><option value="images/Figure_15/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_15/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_15/ca.jpg" >Covariance Analysis</option><option value="images/Figure_15/cnnabc.jpg" >CNN-2C (trained on ABC)</option><option value="images/Figure_15/fcabc.jpg" >FC-2C (trained on ABC)</option><option value="images/Figure_15/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_15/tc.jpg" >PCED-2C (trained on Default)</option><option value="images/Figure_15/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_15/gt.jpg" >Ground Truth</option><option value="images/Figure_15/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_15_right" src="images/Figure_15/fc.jpg"><div class=" resize"><img id="Figure_15_left" src="images/Figure_15/pcpnet.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 16</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_16_left" onchange="updateFigure('Figure_16_left')"><option value="images/Figure_16/pcpnet.jpg" selected>PCPNet (trained on Default)</option><option value="images/Figure_16/fc.jpg" >FC (trained on Default)</option><option value="images/Figure_16/ecnet.jpg" >Edge-aware Point set Consolidation Network (Pre-trained)</option><option value="images/Figure_16/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_16/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_16/ca.jpg" >Covariance Analysis</option><option value="images/Figure_16/cnnabc.jpg" >CNN-2C (trained on ABC)</option><option value="images/Figure_16/fcabc.jpg" >FC-2C (trained on ABC)</option><option value="images/Figure_16/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_16/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_16/gt.jpg" >Ground Truth</option><option value="images/Figure_16/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_16_right" onchange="updateFigure('Figure_16_right')"><option value="images/Figure_16/pcpnet.jpg" >PCPNet (trained on Default)</option><option value="images/Figure_16/fc.jpg" selected>FC (trained on Default)</option><option value="images/Figure_16/ecnet.jpg" >Edge-aware Point set Consolidation Network (Pre-trained)</option><option value="images/Figure_16/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_16/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_16/ca.jpg" >Covariance Analysis</option><option value="images/Figure_16/cnnabc.jpg" >CNN-2C (trained on ABC)</option><option value="images/Figure_16/fcabc.jpg" >FC-2C (trained on ABC)</option><option value="images/Figure_16/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_16/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_16/gt.jpg" >Ground Truth</option><option value="images/Figure_16/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_16_right" src="images/Figure_16/fc.jpg"><div class=" resize"><img id="Figure_16_left" src="images/Figure_16/pcpnet.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 17</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_17_left" onchange="updateFigure('Figure_17_left')"><option value="images/Figure_17/pcpnet.jpg" selected>PCPNet (trained on Default)</option><option value="images/Figure_17/fc.jpg" >FC (trained on Default)</option><option value="images/Figure_17/ecnet.jpg" >Edge-aware Point set Consolidation Network (Pre-trained)</option><option value="images/Figure_17/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_17/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_17/ca.jpg" >Covariance Analysis</option><option value="images/Figure_17/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_17/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_17/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_17_right" onchange="updateFigure('Figure_17_right')"><option value="images/Figure_17/pcpnet.jpg" >PCPNet (trained on Default)</option><option value="images/Figure_17/fc.jpg" selected>FC (trained on Default)</option><option value="images/Figure_17/ecnet.jpg" >Edge-aware Point set Consolidation Network (Pre-trained)</option><option value="images/Figure_17/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_17/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_17/ca.jpg" >Covariance Analysis</option><option value="images/Figure_17/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_17/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_17/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_17_right" src="images/Figure_17/fc.jpg"><div class=" resize"><img id="Figure_17_left" src="images/Figure_17/pcpnet.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 17 Close up</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_17_Close_up_left" onchange="updateFigure('Figure_17_Close_up_left')"><option value="images/Figure_17_Close_up/pcpnet.jpg" selected>PCPNet (trained on Default)</option><option value="images/Figure_17_Close_up/fc.jpg" >FC (trained on Default)</option><option value="images/Figure_17_Close_up/ecnet.jpg" >Edge-aware Point set Consolidation Network (Pre-trained)</option><option value="images/Figure_17_Close_up/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_17_Close_up/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_17_Close_up/ca.jpg" >Covariance Analysis</option><option value="images/Figure_17_Close_up/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_17_Close_up/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_17_Close_up/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_17_Close_up_right" onchange="updateFigure('Figure_17_Close_up_right')"><option value="images/Figure_17_Close_up/pcpnet.jpg" >PCPNet (trained on Default)</option><option value="images/Figure_17_Close_up/fc.jpg" selected>FC (trained on Default)</option><option value="images/Figure_17_Close_up/ecnet.jpg" >Edge-aware Point set Consolidation Network (Pre-trained)</option><option value="images/Figure_17_Close_up/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_17_Close_up/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_17_Close_up/ca.jpg" >Covariance Analysis</option><option value="images/Figure_17_Close_up/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_17_Close_up/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_17_Close_up/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_17_Close_up_right" src="images/Figure_17_Close_up/fc.jpg"><div class=" resize"><img id="Figure_17_Close_up_left" src="images/Figure_17_Close_up/pcpnet.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 18</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_18_left" onchange="updateFigure('Figure_18_left')"><option value="images/Figure_18/pcpnet.jpg" selected>PCPNet (trained on Default)</option><option value="images/Figure_18/fc.jpg" >FC (trained on Default)</option><option value="images/Figure_18/ecnet.jpg" >Edge-aware Point set Consolidation Network (Pre-trained)</option><option value="images/Figure_18/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_18/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_18/ca.jpg" >Covariance Analysis</option><option value="images/Figure_18/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_18/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_18/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_18_right" onchange="updateFigure('Figure_18_right')"><option value="images/Figure_18/pcpnet.jpg" >PCPNet (trained on Default)</option><option value="images/Figure_18/fc.jpg" selected>FC (trained on Default)</option><option value="images/Figure_18/ecnet.jpg" >Edge-aware Point set Consolidation Network (Pre-trained)</option><option value="images/Figure_18/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_18/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_18/ca.jpg" >Covariance Analysis</option><option value="images/Figure_18/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_18/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_18/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_18_right" src="images/Figure_18/fc.jpg"><div class=" resize"><img id="Figure_18_left" src="images/Figure_18/pcpnet.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 18 Close up</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_18_Close_up_left" onchange="updateFigure('Figure_18_Close_up_left')"><option value="images/Figure_18_Close_up/pcpnet.jpg" selected>PCPNet (trained on Default)</option><option value="images/Figure_18_Close_up/fc.jpg" >FC (trained on Default)</option><option value="images/Figure_18_Close_up/ecnet.jpg" >Edge-aware Point set Consolidation Network (Pre-trained)</option><option value="images/Figure_18_Close_up/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_18_Close_up/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_18_Close_up/ca.jpg" >Covariance Analysis</option><option value="images/Figure_18_Close_up/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_18_Close_up/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_18_Close_up/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_18_Close_up_right" onchange="updateFigure('Figure_18_Close_up_right')"><option value="images/Figure_18_Close_up/pcpnet.jpg" >PCPNet (trained on Default)</option><option value="images/Figure_18_Close_up/fc.jpg" selected>FC (trained on Default)</option><option value="images/Figure_18_Close_up/ecnet.jpg" >Edge-aware Point set Consolidation Network (Pre-trained)</option><option value="images/Figure_18_Close_up/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_18_Close_up/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_18_Close_up/ca.jpg" >Covariance Analysis</option><option value="images/Figure_18_Close_up/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_18_Close_up/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_18_Close_up/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_18_Close_up_right" src="images/Figure_18_Close_up/fc.jpg"><div class=" resize"><img id="Figure_18_Close_up_left" src="images/Figure_18_Close_up/pcpnet.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 19</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_19_left" onchange="updateFigure('Figure_19_left')"><option value="images/Figure_19/pcpnet.jpg" selected>PCPNet (trained on Default)</option><option value="images/Figure_19/fc.jpg" >FC (trained on Default)</option><option value="images/Figure_19/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_19/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_19/ca.jpg" >Covariance Analysis</option><option value="images/Figure_19/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_19/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_19/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_19_right" onchange="updateFigure('Figure_19_right')"><option value="images/Figure_19/pcpnet.jpg" >PCPNet (trained on Default)</option><option value="images/Figure_19/fc.jpg" selected>FC (trained on Default)</option><option value="images/Figure_19/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_19/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_19/ca.jpg" >Covariance Analysis</option><option value="images/Figure_19/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_19/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_19/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_19_right" src="images/Figure_19/fc.jpg"><div class=" resize"><img id="Figure_19_left" src="images/Figure_19/pcpnet.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 19 Close up</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_19_Close_up_left" onchange="updateFigure('Figure_19_Close_up_left')"><option value="images/Figure_19_Close_up/pcpnet.jpg" selected>PCPNet (trained on Default)</option><option value="images/Figure_19_Close_up/fc.jpg" >FC (trained on Default)</option><option value="images/Figure_19_Close_up/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_19_Close_up/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_19_Close_up/ca.jpg" >Covariance Analysis</option><option value="images/Figure_19_Close_up/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_19_Close_up/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_19_Close_up/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_19_Close_up_right" onchange="updateFigure('Figure_19_Close_up_right')"><option value="images/Figure_19_Close_up/pcpnet.jpg" >PCPNet (trained on Default)</option><option value="images/Figure_19_Close_up/fc.jpg" selected>FC (trained on Default)</option><option value="images/Figure_19_Close_up/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_19_Close_up/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_19_Close_up/ca.jpg" >Covariance Analysis</option><option value="images/Figure_19_Close_up/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_19_Close_up/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_19_Close_up/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_19_Close_up_right" src="images/Figure_19_Close_up/fc.jpg"><div class=" resize"><img id="Figure_19_Close_up_left" src="images/Figure_19_Close_up/pcpnet.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 20</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_20_left" onchange="updateFigure('Figure_20_left')"><option value="images/Figure_20/fc.jpg" selected>FC (trained on Default)</option><option value="images/Figure_20/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_20/ca.jpg" >Covariance Analysis</option><option value="images/Figure_20/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_20/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_20/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_20_right" onchange="updateFigure('Figure_20_right')"><option value="images/Figure_20/fc.jpg" >FC (trained on Default)</option><option value="images/Figure_20/fee.jpg" selected>Feature Edge Extraction</option><option value="images/Figure_20/ca.jpg" >Covariance Analysis</option><option value="images/Figure_20/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_20/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_20/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_20_right" src="images/Figure_20/fee.jpg"><div class=" resize"><img id="Figure_20_left" src="images/Figure_20/fc.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 20 Close up 1</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_20_Close_up_1_left" onchange="updateFigure('Figure_20_Close_up_1_left')"><option value="images/Figure_20_Close_up_1/fc.jpg" selected>FC (trained on Default)</option><option value="images/Figure_20_Close_up_1/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_20_Close_up_1/ca.jpg" >Covariance Analysis</option><option value="images/Figure_20_Close_up_1/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_20_Close_up_1/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_20_Close_up_1/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_20_Close_up_1_right" onchange="updateFigure('Figure_20_Close_up_1_right')"><option value="images/Figure_20_Close_up_1/fc.jpg" >FC (trained on Default)</option><option value="images/Figure_20_Close_up_1/fee.jpg" selected>Feature Edge Extraction</option><option value="images/Figure_20_Close_up_1/ca.jpg" >Covariance Analysis</option><option value="images/Figure_20_Close_up_1/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_20_Close_up_1/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_20_Close_up_1/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_20_Close_up_1_right" src="images/Figure_20_Close_up_1/fee.jpg"><div class=" resize"><img id="Figure_20_Close_up_1_left" src="images/Figure_20_Close_up_1/fc.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 20 Close up 2</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_20_Close_up_2_left" onchange="updateFigure('Figure_20_Close_up_2_left')"><option value="images/Figure_20_Close_up_2/fc.jpg" selected>FC (trained on Default)</option><option value="images/Figure_20_Close_up_2/fee.jpg" >Feature Edge Extraction</option><option value="images/Figure_20_Close_up_2/ca.jpg" >Covariance Analysis</option><option value="images/Figure_20_Close_up_2/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_20_Close_up_2/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_20_Close_up_2/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_20_Close_up_2_right" onchange="updateFigure('Figure_20_Close_up_2_right')"><option value="images/Figure_20_Close_up_2/fc.jpg" >FC (trained on Default)</option><option value="images/Figure_20_Close_up_2/fee.jpg" selected>Feature Edge Extraction</option><option value="images/Figure_20_Close_up_2/ca.jpg" >Covariance Analysis</option><option value="images/Figure_20_Close_up_2/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_20_Close_up_2/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_20_Close_up_2/cnn.jpg" >CNN (trained on Default)</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_20_Close_up_2_right" src="images/Figure_20_Close_up_2/fee.jpg"><div class=" resize"><img id="Figure_20_Close_up_2_left" src="images/Figure_20_Close_up_2/fc.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 21 bottom</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_21_bottom_left" onchange="updateFigure('Figure_21_bottom_left')"><option value="images/Figure_21_bottom/ecnet.jpg" selected>Edge-aware Point set Consolidation Network (Pre-trained)</option><option value="images/Figure_21_bottom/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_21_bottom/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_21_bottom/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_21_bottom/gt.jpg" >Ground Truth</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_21_bottom_right" onchange="updateFigure('Figure_21_bottom_right')"><option value="images/Figure_21_bottom/ecnet.jpg" >Edge-aware Point set Consolidation Network (Pre-trained)</option><option value="images/Figure_21_bottom/pcpnetabc.jpg" selected>PCPNet (trained on ABC)</option><option value="images/Figure_21_bottom/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_21_bottom/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_21_bottom/gt.jpg" >Ground Truth</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_21_bottom_right" src="images/Figure_21_bottom/pcpnetabc.jpg"><div class=" resize"><img id="Figure_21_bottom_left" src="images/Figure_21_bottom/ecnet.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 21 top</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_21_top_left" onchange="updateFigure('Figure_21_top_left')"><option value="images/Figure_21_top/ecnet.jpg" selected>Edge-aware Point set Consolidation Network (Pre-trained)</option><option value="images/Figure_21_top/pcpnetabc.jpg" >PCPNet (trained on ABC)</option><option value="images/Figure_21_top/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_21_top/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_21_top/gt.jpg" >Ground Truth</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_21_top_right" onchange="updateFigure('Figure_21_top_right')"><option value="images/Figure_21_top/ecnet.jpg" >Edge-aware Point set Consolidation Network (Pre-trained)</option><option value="images/Figure_21_top/pcpnetabc.jpg" selected>PCPNet (trained on ABC)</option><option value="images/Figure_21_top/abc.jpg" >PCED-2C (trained on ABC)</option><option value="images/Figure_21_top/pced.jpg" >PCED (trained on Default)</option><option value="images/Figure_21_top/gt.jpg" >Ground Truth</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_21_top_right" src="images/Figure_21_top/pcpnetabc.jpg"><div class=" resize"><img id="Figure_21_top_left" src="images/Figure_21_top/ecnet.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 23</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_23_left" onchange="updateFigure('Figure_23_left')"><option value="images/Figure_23/pced.jpg" selected>PCED (trained on Default)</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_23_right" onchange="updateFigure('Figure_23_right')"><option value="images/Figure_23/pced.jpg" selected>PCED (trained on Default)</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_23_right" src="images/Figure_23/pced.jpg"><div class=" resize"><img id="Figure_23_left" src="images/Figure_23/pced.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 23 Close up</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_23_Close_up_left" onchange="updateFigure('Figure_23_Close_up_left')"><option value="images/Figure_23_Close_up/pced.jpg" selected>PCED (trained on Default)</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_23_Close_up_right" onchange="updateFigure('Figure_23_Close_up_right')"><option value="images/Figure_23_Close_up/pced.jpg" selected>PCED (trained on Default)</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_23_Close_up_right" src="images/Figure_23_Close_up/pced.jpg"><div class=" resize"><img id="Figure_23_Close_up_left" src="images/Figure_23_Close_up/pced.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 25</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_25_left" onchange="updateFigure('Figure_25_left')"><option value="images/Figure_25/5_Millions_of_vertices.jpg" selected>5 Millions of vertices</option><option value="images/Figure_25/15_Millions_of_vertices.jpg" >15 Millions of vertices</option><option value="images/Figure_25/1_Million_of_vertices.jpg" >1 Million of vertices</option><option value="images/Figure_25/35_Millions_of_vertices.jpg" >35 Millions of vertices</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_25_right" onchange="updateFigure('Figure_25_right')"><option value="images/Figure_25/5_Millions_of_vertices.jpg" >5 Millions of vertices</option><option value="images/Figure_25/15_Millions_of_vertices.jpg" selected>15 Millions of vertices</option><option value="images/Figure_25/1_Million_of_vertices.jpg" >1 Million of vertices</option><option value="images/Figure_25/35_Millions_of_vertices.jpg" >35 Millions of vertices</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_25_right" src="images/Figure_25/15_Millions_of_vertices.jpg"><div class=" resize"><img id="Figure_25_left" src="images/Figure_25/5_Millions_of_vertices.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 26</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_26_left" onchange="updateFigure('Figure_26_left')"><option value="images/Figure_26/Maximum_scale_02.jpg" selected>Maximum scale 02</option><option value="images/Figure_26/Maximum_scale_50.jpg" >Maximum scale 50</option><option value="images/Figure_26/Maximum_scale_05.jpg" >Maximum scale 05</option><option value="images/Figure_26/Maximum_scale_20.jpg" >Maximum scale 20</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_26_right" onchange="updateFigure('Figure_26_right')"><option value="images/Figure_26/Maximum_scale_02.jpg" >Maximum scale 02</option><option value="images/Figure_26/Maximum_scale_50.jpg" selected>Maximum scale 50</option><option value="images/Figure_26/Maximum_scale_05.jpg" >Maximum scale 05</option><option value="images/Figure_26/Maximum_scale_20.jpg" >Maximum scale 20</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_26_right" src="images/Figure_26/Maximum_scale_50.jpg"><div class=" resize"><img id="Figure_26_left" src="images/Figure_26/Maximum_scale_02.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 26 Close up</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_26_Close_up_left" onchange="updateFigure('Figure_26_Close_up_left')"><option value="images/Figure_26_Close_up/Maximum_scale_02.jpg" selected>Maximum scale 02</option><option value="images/Figure_26_Close_up/Maximum_scale_50.jpg" >Maximum scale 50</option><option value="images/Figure_26_Close_up/Maximum_scale_05.jpg" >Maximum scale 05</option><option value="images/Figure_26_Close_up/Maximum_scale_20.jpg" >Maximum scale 20</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_26_Close_up_right" onchange="updateFigure('Figure_26_Close_up_right')"><option value="images/Figure_26_Close_up/Maximum_scale_02.jpg" >Maximum scale 02</option><option value="images/Figure_26_Close_up/Maximum_scale_50.jpg" selected>Maximum scale 50</option><option value="images/Figure_26_Close_up/Maximum_scale_05.jpg" >Maximum scale 05</option><option value="images/Figure_26_Close_up/Maximum_scale_20.jpg" >Maximum scale 20</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_26_Close_up_right" src="images/Figure_26_Close_up/Maximum_scale_50.jpg"><div class=" resize"><img id="Figure_26_Close_up_left" src="images/Figure_26_Close_up/Maximum_scale_02.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 27</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_27_left" onchange="updateFigure('Figure_27_left')"><option value="images/Figure_27/Algebraic_Spheres.jpg" selected>Algebraic Spheres</option><option value="images/Figure_27/Point_Set_Surfaces.jpg" >Point Set Surfaces</option><option value="images/Figure_27/Covariance_Plane_Fitting.jpg" >Covariance Plane Fitting</option><option value="images/Figure_27/Algebraic_Point_Set_Surfaces.jpg" >Algebraic Point Set Surfaces</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_27_right" onchange="updateFigure('Figure_27_right')"><option value="images/Figure_27/Algebraic_Spheres.jpg" >Algebraic Spheres</option><option value="images/Figure_27/Point_Set_Surfaces.jpg" selected>Point Set Surfaces</option><option value="images/Figure_27/Covariance_Plane_Fitting.jpg" >Covariance Plane Fitting</option><option value="images/Figure_27/Algebraic_Point_Set_Surfaces.jpg" >Algebraic Point Set Surfaces</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_27_right" src="images/Figure_27/Point_Set_Surfaces.jpg"><div class=" resize"><img id="Figure_27_left" src="images/Figure_27/Algebraic_Spheres.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 27 Close up</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_27_Close_up_left" onchange="updateFigure('Figure_27_Close_up_left')"><option value="images/Figure_27_Close_up/Algebraic_Spheres.jpg" selected>Algebraic Spheres</option><option value="images/Figure_27_Close_up/Point_Set_Surfaces.jpg" >Point Set Surfaces</option><option value="images/Figure_27_Close_up/Covariance_Plane_Fitting.jpg" >Covariance Plane Fitting</option><option value="images/Figure_27_Close_up/Algebraic_Point_Set_Surfaces.jpg" >Algebraic Point Set Surfaces</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_27_Close_up_right" onchange="updateFigure('Figure_27_Close_up_right')"><option value="images/Figure_27_Close_up/Algebraic_Spheres.jpg" >Algebraic Spheres</option><option value="images/Figure_27_Close_up/Point_Set_Surfaces.jpg" selected>Point Set Surfaces</option><option value="images/Figure_27_Close_up/Covariance_Plane_Fitting.jpg" >Covariance Plane Fitting</option><option value="images/Figure_27_Close_up/Algebraic_Point_Set_Surfaces.jpg" >Algebraic Point Set Surfaces</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_27_Close_up_right" src="images/Figure_27_Close_up/Point_Set_Surfaces.jpg"><div class=" resize"><img id="Figure_27_Close_up_left" src="images/Figure_27_Close_up/Algebraic_Spheres.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+                      <h3 style="text-align:center;">Figure 27 Side view</h3>
+                      <div class="row">
+                      <section class="col-6 col-12-narrower"><p style="text-align:left;">Left image: <select id="dropdown-Figure_27_Side_view_left" onchange="updateFigure('Figure_27_Side_view_left')"><option value="images/Figure_27_Side_view/Algebraic_Spheres.jpg" selected>Algebraic Spheres</option><option value="images/Figure_27_Side_view/Point_Set_Surfaces.jpg" >Point Set Surfaces</option><option value="images/Figure_27_Side_view/Covariance_Plane_Fitting.jpg" >Covariance Plane Fitting</option><option value="images/Figure_27_Side_view/Algebraic_Point_Set_Surfaces.jpg" >Algebraic Point Set Surfaces</option></select></p></section>
+                      <section class="col-6 col-12-narrower"><p style="text-align:right;">Right image: <select id="dropdown-Figure_27_Side_view_right" onchange="updateFigure('Figure_27_Side_view_right')"><option value="images/Figure_27_Side_view/Algebraic_Spheres.jpg" >Algebraic Spheres</option><option value="images/Figure_27_Side_view/Point_Set_Surfaces.jpg" selected>Point Set Surfaces</option><option value="images/Figure_27_Side_view/Covariance_Plane_Fitting.jpg" >Covariance Plane Fitting</option><option value="images/Figure_27_Side_view/Algebraic_Point_Set_Surfaces.jpg" >Algebraic Point Set Surfaces</option></select></p></section>
+                    </div>
+                    <div class="row">
+                      <section class="col-12 col-12-narrower"><div class="ba-slider"><img id="Figure_27_Side_view_right" src="images/Figure_27_Side_view/Point_Set_Surfaces.jpg"><div class=" resize"><img id="Figure_27_Side_view_left" src="images/Figure_27_Side_view/Algebraic_Spheres.jpg"></div><span class="handle"></span></div></section>
+                    </div>
+
+
+                </article>
+
+            </div>
+          </div>
+        </section>
+
+      <!-- Footer -->
+        <div id="footer">
+          <!-- Copyright -->
+            <div class="copyright">
+              <ul class="menu">
+                <li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+              </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+      <script src="assets/js/jquery.min.js"></script>
+      <script src="assets/js/jquery.dropotron.min.js"></script>
+      <script src="assets/js/browser.min.js"></script>
+      <script src="assets/js/breakpoints.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <script src="assets/js/main.js"></script>
+      <script src="assets/js/plotly-latest.min.js" charset="utf-8"></script>
+      <script src="assets/js/before-after.min.js" charset="utf-8"></script>
+      <script src="assets/js/index_plot.js" charset="utf-8"></script>
+
+
+<script>
+function updateFigure(divid){
+    image = $('#dropdown-'+divid)[0].value;
+    document.getElementById(divid).src = image; 
+}
+
+</script>
+
+  </body>
+</html>

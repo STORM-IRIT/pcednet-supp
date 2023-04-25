@@ -1,0 +1,548 @@
+<!DOCTYPE HTML>
+<!--
+  Arcana by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>A Light-Weight Neural Network for Fast and Interactive Edge Detection in 3D Point Clouds</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="author"   content="Nicolas Mellado">
+    <meta name="description" content="Project page for PCEDNet: A Lightweight Neural Network for Fast and Interactive Edge Detection in 3D Point Clouds">
+    <meta name="keywords" content="PCEDNet, Deep Learning, Point cloud, Edge Detection, 3D, Lidar, Interactive Learning">
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
+        <style>
+#threejs-canvas1 {
+  padding: 0px;
+  margin: 2px;
+  width: 100%;
+  height: 400px;
+}
+        </style>
+  </head>
+  <body class="is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+        <div id="header">
+          <h1><a href="index.html" id="logo">A Light-Weight Neural Network for Fast and Interactive Edge Detection in 3D Point Clouds</a></h1>
+          <!-- Nav -->
+            <nav id="nav">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="software.html">Software</a></li>
+                <li class="current"><a href="default.html">Default Dataset</a></li>
+                <li class=""><a href="abc.html">ABC Dataset</a></li>
+                <li class=""><a href="abc_noise_0.04.html">ABC Dataset (with noise)</a></li>
+                <li class=""><a href="shrec.html">SHREC: Curve Detection Dataset</a></li>
+              </ul>
+            </nav>
+
+        </div>
+
+      <!-- Main -->
+        <section class="wrapper style1">
+          <div class="container">
+            <div id="content">
+
+                <div id="progressbar"><div class="progress-label" style="text-align:center;background:rgb(255,60,60);">Loading data from files (might take up to 1 minute), please wait...</div></div>
+
+
+                <article>
+                  <header>
+                    <h2>Default Dataset: simple geometrical objects with noise</h2>
+                  </header>
+                  
+                </article>
+
+                <article id="threejs-article">
+                  <header>
+                    <h2>Examples of 3d models</h2>
+                  </header>
+                    <div class="row">
+                      <section class="col-6 col-12-narrower">
+                        <h3>Model description</h3>
+                        <p>Select a classification in the list: <select id="threejs-dropdown-method-1" onchange="updateThreeMethod1()"></select></p>
+                        <p>Select a model in the list: <select id="threejs-dropdown-model-1" onchange="updateThreeModel1()"></select></p>
+                        <div id="threejs-model-description-1"></div>
+
+                        <h4>Legend</h4>
+                        <ul style="list-style: none;">
+                          <li><div style="float:left; border: 1px solid black; margin:2px; background-color:rgb(180, 180, 180); width: 30px; height: 20px;"></div> Flat</li>
+                          <li><div style="float:left; border: 1px solid black; margin:2px; background-color:rgb(255,   0,   0); width: 30px; height: 20px;"></div> Sharp</li>
+                          <li><div style="float:left; border: 1px solid black; margin:2px; background-color:rgb(255, 255,   0); width: 30px; height: 20px;"></div> Smooth</li>
+                        </ul>
+                      </section>
+                      <section class="col-6 col-12-narrower">
+                        <header>
+                          <h3 style="text-align:center;">Interactive WebGL viewer</h3>
+                          <p style="text-align:center;">(click, drag and scroll to interact with the 3D model)</p>
+                        </header>
+                        <div id='threejs-canvas1'></div>
+                      </section>
+                </article>
+            </div>
+
+            <article>
+              <header>
+                <h2>Statistical analysis</h2>
+              </header>
+            <div class="row">
+              <section class="col-12 col-12-narrower">
+              <h3>Indicators: median value per method</h3>
+              <p>Click on a column header to change sorting.</p>
+              <table id="table-dataset-metrics" class="display cell-border">
+                <thead>
+                </thead>
+              </table>
+              </section> 
+            </div>
+
+            <div class="row">
+              <section class="col-6 col-12-narrower">
+              <h3>Indicators distributions per method</h3>
+              <p>This plot shows, for each method and training set, the distributions of several indicators for the whole dataset. Use the drop-down menue below to change the indicator (both the description and the plot should be updated). Note that the plot is interactive: change zoom, range and access method full name using mouse interaction.<br />
+              Current indicator: <select id="select-distr-criterion" onchange="updateDistr()"></select></p>
+              <div id="descr-distr-criterion"></div>
+              <p>Bad (indicator 25% smallest values) and good (indicator 10% higher values) areas are highlighted in the plot in red and green, respectively. Efficient methods should have few samples in the red area (the lower, the better), while having most of its samples in the green area (the higher, the better).</p>
+              </section> 
+
+              <section class="col-6 col-12-narrower">
+                <div id='plot-distr'></div>
+              </section> 
+            </div>
+
+            <div class="row">
+              <section class="col-6 col-12-narrower">
+              <h3>Precision/Recall</h3>
+              <p>This plot shows a representative score per approach: each method is shown as point sample, such that (select mean or median below):
+                <ul>
+                    <li>Its position is the <strong>mean</strong> precision/recall score for the whole dataset,</li>
+                    <li>Its position is the <strong>median</strong> precision/recall score for the whole dataset.</li>
+                </ul>
+            </p>
+            <p>The plot is interactive: change zoom, range and access method full name using mouse interaction.</p>
+            Visualization type: <select id="pr-dropdown-scatter-type" onchange="updatePRScatter()"><option value="median">Median</option><option value="mean">Mean</option></select>
+              </section> 
+
+              <section class="col-6 col-12-narrower">
+                <div id='plot-pr-scatter'></div>
+              </section> 
+            </div>
+
+
+            <div class="row">
+              <section class="col-12 col-12-narrower">
+              <h3>Precision/Recall distributions - Methods comparisons</h3>
+              <p>These graphs show the precision/recall values as scatter plot (each 3D model is a sample) and its associated density function for the whole dataset.</p>
+              <div id='plot-pr-comp'></div>
+              </section>
+              <section class="col-6 col-12-narrower">
+                Left dataset: <select id="pr-dropdown-1" onchange="updatePR()"></select>
+                          <button  id="pr-button-dl"
+        type="button"  onclick="exportpr1()" download="image.png">Export as SVG</button>
+              </section>
+              <section class="col-6 col-12-narrower">
+                Right dataset: <select id="pr-dropdown-2" onchange="updatePR()"></select>
+              </section>
+            </div>
+
+          </article>
+
+          </div>
+        </section>
+
+      <!-- Footer -->
+        <div id="footer">
+          <!-- Copyright -->
+            <div class="copyright">
+              <ul class="menu">
+                <li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+              </ul>
+            </div>
+        </div>
+    </div>
+
+  <div class="row" style="display: none;">
+         <div id='plot-pr-single'><!-- Plotly chart will be drawn inside this DIV -->      </div>
+<a href="#" id="downloader" download="image.png"></a>
+  </div>
+
+  <script>
+var progressbar = $( "#progressbar" ),
+  progressLabel = $( ".progress-label" );
+
+progressbar.progressbar({
+  value: false,
+  complete: function() {
+    progressLabel.text( "Complete!" );
+  }
+});
+  </script>
+
+    <!-- Scripts -->
+      <script src="assets/js/jquery.dropotron.min.js"></script>
+      <script src="assets/js/browser.min.js"></script>
+      <script src="assets/js/breakpoints.min.js"></script>
+      <script src="assets/js/util.js"></script>
+      <script src="assets/js/main.js"></script>
+      <!-- Latest compiled and minified plotly.js JavaScript -->
+      <script src="assets/js/plotly-latest.min.js" charset="utf-8"></script>
+      <script src="assets/js/data.js"></script>
+      <script src="assets/js/three/three.min.js"></script>
+      <script src="assets/js/three/OrbitControls.js"></script>
+      <script src="assets/js/three/PLYLoader.js"></script>
+      <script src="assets/js/3d.js"></script>
+      <!-- These file are generated by calling python3 scripts preprocessingXXX.py-->
+      <script src="assets/js/data_default.js"></script>
+      <script src="assets/js/3d_default.js"></script>
+      <!-- Downloaded from https://polyfill.io/v3/polyfill.min.js?features=es6 -->
+      <script src="assets/js/polyfill.min.js"></script>
+      <!-- Downloaded from https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js -->
+      <script id="MathJax-script" src="assets/js/tex-mml-chtml.js"></script>
+
+      <!-- https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css -->
+      <link rel="stylesheet" type="text/css" href="assets/css/jquery.dataTables.min.css">
+      <!-- https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js -->
+      <script type="text/javascript" charset="utf8" src="assets/js/jquery.dataTables.min.js"></script>
+
+      <script>
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// 3D viewers
+var threeScene1, threeCamera1, controls1;
+ 
+function initialize3dModelList(){
+    // GT, pced, ca, ...
+    let dropdown_met = $('#threejs-dropdown-method-1');
+    let dropdown_mod = $('#threejs-dropdown-model-1');
+
+    dropdown_met.empty();
+    dropdown_mod.empty();
+
+    var first = true;
+
+    // Generate model list from data
+    $.each(threeModels, function (methodname, data) {
+        dropdown_met.append($('<option></option>').attr('value', methodname).text(methodname));
+        if (first) {
+            $.each(threeModels[methodname], function (modelname, datamod) {
+                dropdown_mod.append($('<option></option>').attr('value', modelname).text(modelname));
+            });
+            first = false;
+        }
+    });
+
+    var ret = generateViewer('threejs-canvas1');
+    threeScene1  = ret[0];
+    threeCamera1 = ret[1];
+    controls1    = ret[2];
+}
+
+// Prepare 3js data
+
+const method_id={
+   "PCED (trained on Default)": "pced",
+   "PCED-2C (trained on Default)": "tc",
+   "PCED-2C (trained on EC)": "tcec",
+   "PCED-2C (trained on ABC)": "abc",
+   "PCED (trained on Default) - 4 scales": "abcreduc4",
+   "PCED (trained on Default) - 8 scales": "abcreduc8",
+   "PCED (trained on Default) - 32 scales": "abcreduc32",
+   "PCED (trained on Default) - 64 scales": "abcreduc64",
+   "PCED (trained on Default) - 128 scales": "abcreduc128",
+   "PCED-2C (trained on Shrec)": "shrec",
+   "PCED (trained on Default - P = Sharp+Smooth)": "pcedss",
+   "FC (trained on Default)": "fc",
+   "FC-2C (trained on Default)": "fc2c",
+   "FC-2C (trained on ABC)": "fcabc",
+   "FC-2C (trained on Shrec)": "fcshrec",
+   "FC (trained on Default - P = Sharp+Smooth)": "fcss",
+   "CNN (trained on Default)": "cnn",
+   "CNN-2C (trained on Default)": "cnn2c",
+   "CNN-2C (trained on ABC)": "cnnabc",
+   "CNN-2C (trained on Shrec)": "cnnshrec",
+   "CNN (trained on Default - P = Sharp+Smooth)": "cnnss",
+   "Covariance Analysis": "ca",
+   "Feature Edge Extraction": "fee",
+   "PCPNet (trained on Default)": "pcpnet",
+   "PCPNet (trained on ABC)": "pcpnetabc",
+   "Edge-aware Point set Consolidation Network (Pre-trained)": "ecnet",
+   "Ground Truth": "gt",
+};
+
+function displayModelWrapper( scene, camera, control, methodname, modelname, resetControl ){
+  let plyfile = '3dmodels/default/'+method_id[methodname]+'/'+threeModels[methodname][modelname]["plyfile"];
+  
+  const loader = new THREE.PLYLoader();
+    loader.load( plyfile, function ( geometry ) {
+    // let material = new THREE.PointsMaterial( { size: 0.1, vertexColors: THREE.VertexColors } );
+    let material  = new THREE.ShaderMaterial( {
+      vertexColors: true,
+      vertexShader: "varying vec3 vcolor; varying vec3 vnormal; void main() { vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 ); gl_PointSize = ( 15.0 / - mvPosition.z ); gl_Position = projectionMatrix * mvPosition; vcolor = color==vec3(1.)?vec3(0.705):color;  vnormal =  normal; } ",
+      fragmentShader: "varying vec3 vcolor; varying vec3 vnormal; void main() { vec3 ldir = vec3(1.,1.,1.); if ( length( gl_PointCoord - vec2( 0.5, 0.5 ) ) > 0.475 ) discard; gl_FragColor = vec4( vcolor, 1.0 ) * (0.5 + 0.7*pow(abs(dot(vnormal,normalize(ldir))),0.5)); }",
+    } );
+    displayModel(threeScene1, threeCamera1, controls1, geometry, material, resetControl);
+  });
+}
+
+
+function updateThreeMethod1(){
+    var methodname = $('#threejs-dropdown-method-1')[0].value;
+    var modelname = $('#threejs-dropdown-model-1')[0].value;
+    displayModelWrapper(threeScene1, threeCamera1, controls1, methodname, modelname, false);
+}
+
+function updateThreeModel1(){
+    var methodname = $('#threejs-dropdown-method-1')[0].value;
+    var modelname = $('#threejs-dropdown-model-1')[0].value;
+    displayModelWrapper(threeScene1, threeCamera1, controls1, methodname, modelname, true);
+
+    document.getElementById("threejs-model-description-1").innerHTML = threeModels[methodname][modelname]['description'];
+}
+
+$(document).ready(function(){
+var size = Object.keys(threeModels).length;
+
+if (size != 0){ 
+    initialize3dModelList();
+    updateThreeModel1();
+} else {
+    document.getElementById("threejs-article").style.display = "none";
+}
+});
+      </script>
+
+
+
+
+
+      <script>
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Dataset PLOT
+//////////////////////////
+// Histogram Scatter plot
+
+function initializeFieldList(){
+    let dropdown = $('#select-distr-criterion');
+
+    dropdown.empty();
+
+    $.each(dataset_properties['fields_properties']['description'], function (key, entry) {
+        if (! ['TP', 'FP', 'TN', 'FN'].includes(key) )
+        dropdown.append($('<option></option>').attr('value', key).text(key));
+    });
+
+    Plotly.newPlot('plot-distr', [], getHistogramLayout(), {responsive: true});
+
+    updateDistr()
+}
+
+function updateDistr(){
+    var name = $('#select-distr-criterion')[0].value;
+    // update description
+    document.getElementById('descr-distr-criterion').innerHTML = dataset_properties['fields_properties']['description'][name];
+    MathJax.typeset();
+
+
+    // update plot
+    var data = [];
+    $.each(datasets, function (key, entry) {
+        var trace = {
+            x: dataset_properties['fields_properties']['bins'][name], // 3 is MCC
+            y: entry[name + '-Hist'],
+            name: entry['Name'],
+            mode: 'lines',
+            type: 'scattergl',
+            _priority: dataset_properties['methods']['Priority'][data.length],
+            legendgroup: dataset_properties['methods']['LegendGroup'][data.length],
+          };
+        data.push(trace);
+    });
+
+    // Sort in decending order
+    data = data.sort(function(a, b) {
+        return a._priority - b._priority;
+    });
+
+    Plotly.react('plot-distr', data, getHistogramLayout());
+}
+
+$(document).ready(function(){
+    initializeFieldList();
+});
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// PR PLOTS
+
+
+//////////////////////////
+// Tables
+
+//$(document).ready(function(){
+var table = document.getElementById("table-dataset-metrics");
+
+data = dataset_properties['curves']['median'];
+columnNames = Object.keys(data);
+
+
+nbmethods = data[columnNames[0]].length
+for(var m = 0; m!=nbmethods; m++)
+{
+    row = table.insertRow(-1);
+
+    var cell = row.insertCell(-1);
+    cell.innerHTML = dataset_properties['methods']['Names'][m];
+
+    for (var i in columnNames) {
+      cell = row.insertCell(-1);
+      cell.innerHTML = data[columnNames[i]][m].toFixed(3);
+    }
+}
+
+
+// Create table header
+var header = table.createTHead();
+var row = header.insertRow(-1);
+row.insertCell(-1).innerHTML = "Method"
+for (var i in columnNames) {
+  var titlecell = row.insertCell(-1);
+  titlecell.innerHTML = columnNames[i];
+}
+
+$('#table-dataset-metrics').DataTable( {
+        "order": [[ 3, "desc" ]],
+        "paging":   false,
+    });
+
+
+
+/*
+    var columns = [];
+    columnNames = Object.keys(data);
+    for (var i in columnNames) {
+      columns.push({data: columnNames[i], title: columnNames[i]});
+    }
+    $('#example').DataTable( {
+        data: [1,2,3,4,5,6,7,8,9,10],// data,
+        columns: columns
+    } );
+*/
+
+     //var table = $('#table-dataset-metrics').DataTable();
+
+
+//});
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// PR PLOTS
+
+
+//////////////////////////
+// Dataset Scatter plot
+
+$(document).ready(function(){
+
+Plotly.newPlot('plot-pr-scatter', 
+                [ getPRScatterPlot(dataset_properties['curves']['median']['Precision'], 
+                                   dataset_properties['curves']['median']['Recall'],
+                                   dataset_properties['methods']['Markers']) ], 
+                getPRScatterLayout(), {responsive: true});
+});
+
+function updatePRScatter(){
+
+    scatter_type = $('#pr-dropdown-scatter-type')[0].value;
+    Plotly.react('plot-pr-scatter', 
+                [ getPRScatterPlot(dataset_properties['curves'][scatter_type]['Precision'], 
+                                   dataset_properties['curves'][scatter_type]['Recall'],
+                                   dataset_properties['methods']['Markers']) ], 
+                getPRScatterLayout());
+}
+
+
+//////////////////////////
+// Pairwise PR Plots
+function updatePR(){
+
+    var d1 = datasets[$('#pr-dropdown-1')[0].value];
+    var d2 = datasets[$('#pr-dropdown-2')[0].value];
+    Plotly.react('plot-pr-comp',
+        getPRPlotData2(d1['Precision'],d1['Recall'],
+                       d2['Precision'],d2['Recall']),
+        getPRLayout2(  d1['Name'],     d2['Name']));
+}
+
+$(document).ready(function(){
+    let dropdown1 = $('#pr-dropdown-1');
+    let dropdown2 = $('#pr-dropdown-2');
+
+    dropdown1.empty();
+    dropdown2.empty();
+
+    var i = 0;
+    $.each(datasets, function (key, entry) {
+        dropdown1.append($('<option></option>').attr('value', key).text(entry['Name']));
+        if (key == 'pced') dropdown1.prop('selectedIndex', i);
+        dropdown2.append($('<option></option>').attr('value', key).text(entry['Name']));
+        if (key == 'default') dropdown2.prop('selectedIndex', i);
+        i = i+1;
+    });
+
+
+    var d1 = datasets[$('#pr-dropdown-1')[0].value];
+    var d2 = datasets[$('#pr-dropdown-2')[0].value];
+    Plotly.newPlot('plot-pr-comp',
+        getPRPlotData2(d1['Precision'],d1['Recall'],
+                       d2['Precision'],d2['Recall']),
+        getPRLayout2(  d1['Name'],     d2['Name']), {responsive: true});
+
+
+
+    $( "#progressbar" ).progressbar({ value: true });
+    document.getElementById("progressbar").style.display = "none";
+    if(! ("default" == "abc" || "default" == "abc_noise_0.04"))
+      document.getElementById("pr-button-dl").style.display = "none";
+    
+});
+
+//////////////////////////
+// Pairwise PR Plots - Button Save image
+function exportpr1(){
+    let dropdown1 = $('#pr-dropdown-1');
+
+    var d1 = datasets[$('#pr-dropdown-1')[0].value];
+
+    Plotly.newPlot('plot-pr-single',
+        getPRPlotDataSingle(d1['Precision'],d1['Recall']),
+        getPRLayoutSingle(  d1['NamePaper'] ))
+
+    // static export in png format
+    .then(
+    function(gd)
+     {
+      Plotly.toImage(gd,{height:800,width:800,format:'svg',})
+         .then(
+             function(url)
+         {
+             // window.location = url;
+             document.getElementById("downloader").download = d1['FigureFilename'] + ".svg";
+             document.getElementById("downloader").href = url.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+              document.getElementById("downloader").click();
+
+         }
+         )
+    });
+
+}
+
+</script>
+
+  </body>
+</html>

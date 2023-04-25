@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<!--
+  Arcana by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>A Light-Weight Neural Network for Fast and Interactive Edge Detection in 3D Point Clouds</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="author"   content="Nicolas Mellado">
+    <meta name="description" content="Project page for PCEDNet: A Lightweight Neural Network for Fast and Interactive Edge Detection in 3D Point Clouds">
+    <meta name="keywords" content="PCEDNet, Deep Learning, Point cloud, Edge Detection, 3D, Lidar, Interactive Learning, Code, Software, Binaries">
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
+        <style>
+#threejs-canvas1 {
+  padding: 0px;
+  margin: 2px;
+  width: 100%;
+  height: 400px;
+}
+        </style>
+  </head>
+  <body class="is-preload">
+    <div id="page-wrapper">
+      <!-- Header -->
+        <div id="header">
+          <h1><a href="index.html" id="logo">A Light-Weight Neural Network for Fast and Interactive Edge Detection in 3D Point Clouds</a></h1>
+          <!-- Nav -->
+            <nav id="nav">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li class="current"><a href="software.html">Software</a></li>
+                <li><a href="default.html">Default Dataset</a></li>
+                <li><a href="abc.html">ABC Dataset</a></li>
+                <li><a href="abc_noise_0.04.html">ABC Dataset (with noise)</a></li>
+                <li><a href="shrec.html">SHREC: Curve Detection Dataset</a></li>
+              </ul>
+            </nav>
+
+        </div>
+
+      <!-- Main -->
+      <section class="wrapper style1">
+        <div class="container">
+          <div id="content">
+            <!-- Content -->
+            <article>
+              <h2>Replicability</h2>
+              <p style="text-align: justify; margin-bottom:0px;">We provide pre-compiled binaries allowing to replicate materials used in Figures: 1.b, 7, 15, 17, 18, 19, Tables 4, 7, 8.</p>
+              <p style="text-align: justify; margin-bottom:0px;"><b>Disclaimer</b>:>We provide the licensed software "as is," and makes no express or implied warranty of any kind. PCEDNet authors specifically disclaims all indirect or implied warranties to the full extent allowed by applicable law, including without limitation all implied warranties of, non-infringement, merchantability, title or fitness for any particular purpose. No oral or written information or advice given by the authors shall create a warranty.</p>
+              <p style="text-align: justify; margin-bottom:0px;"><b>Resources</b>: download zip file containing a pre-compiled software reproducing the figures material, a python script downloading the assets and calling the software. [<a title="Download replicability material for PCEDNet (linux, debian based)" href="https://www.irit.fr/STORM/site/files-web/demos/2022-pcednet/pced-replicability-debian.zip">Linux (debian based)</a>].</p>
+              <p style="text-align: justify; margin-bottom:0px;"><b>Usage</b>:</p>
+              <ol>
+              <li>Download and unzip archive</li>
+              <li>Install dependencies (from unzipped folder): <pre>$ python3 -m pip install -r requirements.txt</pre> </li>
+              <li>Replicate results (from unzipped folder): <pre>$python3 pced-replicability.py</pre>This step may take some time as it fetches datasets and pre-compiled networks from zenodo (<a href="https://zenodo.org/record/7230148">link to 7230148</a>), then compute Scale-Space Matrices, and finally classify point clouds. </li>
+              </ol>
+              <p style="text-align: justify; margin-bottom:0px;"><b>Output</b> are generated in the folder <code>generated_data</code> as follows</p>
+              <ul>
+                <li>Figure 1b: <code>fig1b_0133_abc.ply</code>,<code>fig1b_0133_default.ply</code> </li>
+                <li>Figure 7: <code>fig7_Frac2GaussXX.ply</code></li>
+                <li>Figure 15: <code>fig15_7029_abc.ply</code>,<code>fig15_7029_default.ply</code> </li>
+                <li>Figure 17: <code>fig17_lans.ply</code> </li>
+                <li>Figure 18: <code>fig18_empire.ply</code> </li>
+                <li>Figure 19: <code>fig19_church.ply</code> </li>
+                <li>Table 4: <code>tab4.csv</code> </li>
+                <li>Table 7: <code>tab7.csv</code> </li>
+                <li>Table 8: <code>tab8.csv</code> </li>
+              </ul>
+              <p style="text-align: justify; margin-bottom:0px;"><b>Note about metrics</b>: in the paper, numbers are reported for multiple runs and multiple networks trained with random initialization. The provided packages use one pre-trained network per dataset, so numbers may be slightly different from those reported in the paper.</p>
+              <p style="text-align: justify; margin-bottom:0px;"><b>Note about performances</b>: timings may vary depending on the capabilities of the running computer (from a couple of hours to days from our experiments). The computation of Table 8 on the whole ABC dataset is time-consuming, and so numbers are computed for a subset of 17 models by default. Run python script with option <code>--full-abc</code> to process the 7k models from abc dataset. </p>
+            </article>
+
+            <article>
+              <h2>Standalone demo</h2>
+              <p style="text-align: justify; margin-bottom:0px;"><b>Disclaimer</b>:We provide the licensed software "as is," and makes no express or implied warranty of any kind. PCEDNet authors specifically disclaims all indirect or implied warranties to the full extent allowed by applicable law, including without limitation all implied warranties of, non-infringement, merchantability, title or fitness for any particular purpose. No oral or written information or advice given by the authors shall create a warranty.</p>
+              <p style="text-align: justify; margin-bottom:0px;"><b>Bug reports</b>: Please report bugs at: <a title="Report issue" href="https://github.com/STORM-IRIT/pcednet-supp/issues">https://github.com/STORM-IRIT/pcednet-supp/issues</a>.</p>
+              <p style="text-align: justify; margin-bottom:0px;"><b>Resources</b>: This demo requires pretrained networks (<a title="Download PCEDNet pretrained networks" href="https://bit.ly/3Ntb062">clic here to download</a>).</p>
+            </article>
+
+            
+              <h3>Release v1.0.1: Patch classified export</h3>
+              <ul>
+                 <li><b>Release date</b>: 2023-04-25</li>
+                 <li><b>Release type</b>: Beta</li>
+                 <li><b>Changelog</b>: <p style="text-align: justify; margin-bottom:0px;">First patch of the Demo, fixing point cloud export (colors where not saved, see <a href="https://github.com/STORM-IRIT/pcednet-supp/issues/11">https://github.com/STORM-IRIT/pcednet-supp/issues/11</a>).</p></li>
+                 <li><b>Download links</b>: <ul><li><b>win64</b>: <a href="https://bit.ly/pced-demo-1-0-1-win">https://bit.ly/pced-demo-1-0-1-win</a></li> <li><b>macos</b>: <a href="https://bit.ly/pced-demo-1-0-1-macos">https://bit.ly/pced-demo-1-0-1-macos</a></li></ul></li>
+              </ul>
+
+              <h3>Release v1.0.0: First release</h3>
+              <ul>
+                 <li><b>Release date</b>: 2022-03-29</li>
+                 <li><b>Release type</b>: Beta</li>
+                 <li><b>Changelog</b>: <p style="text-align: justify; margin-bottom:0px;">First version of the Demo, allowing to classify point-clouds with pre-trained networks. 
+Point clouds are loaded from ply files with oriented normals (fields nx, ny, nz).</p><p style="text-align: justify; margin-bottom:0px;">Known bugs: there is a display error when loading multiple files successively.</p></li>
+                 <li><b>Download links</b>: <ul><li><b>win64</b>: <a href="https://bit.ly/3x1ryMP">https://bit.ly/3x1ryMP</a></li> <li><b>macos</b>: <a href="https://bit.ly/36GHJEa">https://bit.ly/36GHJEa</a></li></ul></li>
+              </ul>
+
+
+            <article>
+              <h2>Gallery</h2>
+              <iframe width="30%" src="https://www.youtube.com/embed/jbsxPCLrfuM" title="PCEDNet: Classifier demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <div id="footer">
+        <!-- Copyright -->
+        <div class="copyright">
+          <ul class="menu">
+            <li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+  </body>
+</html>
