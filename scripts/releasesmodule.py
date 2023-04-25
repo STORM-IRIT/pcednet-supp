@@ -31,16 +31,13 @@ Point clouds are loaded from ply files with oriented normals (fields nx, ny, nz)
 
 
 release_article_template = """
-            <article>
-              <h3>@rtitle@</h3>
+              <h3>Release @rversion@: @rtitle@</h3>
               <ul>
-                 <li><b>Release version</b>: @rversion@</li>
                  <li><b>Release date</b>: @rdate@</li>
                  <li><b>Release type</b>: @rtype@</li>
                  <li><b>Changelog</b>: @rchangelog@</li>
                  <li><b>Download links</b>: @rlinks@</li>
               </ul>
-            </article>
 """
 
 
