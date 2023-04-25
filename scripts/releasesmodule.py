@@ -1,6 +1,18 @@
 import utilsmodule as um
 
 releases = {
+    "v1.0.1": {
+        "title": "Patch classified export",
+        "type": "Beta",
+        "date": "2023-04-25",
+        "url": {
+            "win64": "https://bit.ly/pced-demo-1-0-1-win",
+            "macos": "#"
+        },
+        "changelog": [
+            """First patch of the Demo, fixing point cloud export (colors where not saved, see <a href="https://github.com/STORM-IRIT/pcednet-supp/issues/11">https://github.com/STORM-IRIT/pcednet-supp/issues/11</a>)."""
+        ]
+    },
     "v1.0.0": {
         "title": "First release",
         "type": "Beta",
