@@ -7,7 +7,7 @@ releases = {
         "date": "2023-04-25",
         "url": {
             "win64": "https://bit.ly/pced-demo-1-0-1-win",
-            "macos": "#"
+            "macos": "https://bit.ly/pced-demo-1-0-1-macos"
         },
         "changelog": [
             """First patch of the Demo, fixing point cloud export (colors where not saved, see <a href="https://github.com/STORM-IRIT/pcednet-supp/issues/11">https://github.com/STORM-IRIT/pcednet-supp/issues/11</a>)."""
