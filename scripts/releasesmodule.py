@@ -1,6 +1,18 @@
 import utilsmodule as um
 
 releases = {
+    "v1.0.1": {
+        "title": "Patch classified export",
+        "type": "Beta",
+        "date": "2023-04-25",
+        "url": {
+            "win64": "https://bit.ly/pced-demo-1-0-1-win",
+            "macos": "https://bit.ly/pced-demo-1-0-1-macos"
+        },
+        "changelog": [
+            """First patch of the Demo, fixing point cloud export (colors where not saved, see <a href="https://github.com/STORM-IRIT/pcednet-supp/issues/11">https://github.com/STORM-IRIT/pcednet-supp/issues/11</a>)."""
+        ]
+    },
     "v1.0.0": {
         "title": "First release",
         "type": "Beta",
@@ -19,16 +31,13 @@ Point clouds are loaded from ply files with oriented normals (fields nx, ny, nz)
 
 
 release_article_template = """
-            <article>
-              <h3>@rtitle@</h3>
+              <h3>Release @rversion@: @rtitle@</h3>
               <ul>
-                 <li><b>Release version</b>: @rversion@</li>
                  <li><b>Release date</b>: @rdate@</li>
                  <li><b>Release type</b>: @rtype@</li>
                  <li><b>Changelog</b>: @rchangelog@</li>
                  <li><b>Download links</b>: @rlinks@</li>
               </ul>
-            </article>
 """
 
 
